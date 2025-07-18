@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DemoMVC.Models.Products
+namespace DemoMVC.Models
 {
-    public class Product
+    public class ProductViewModel
     {
         public int Id { get; set; }
 

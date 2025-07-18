@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DemoMVC.Models.Employees
+namespace DemoMVC.Models
 {
     public class EmployeeViewModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Required]
         public string Name { get; set; }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DemoMVC.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +11,7 @@ namespace DemoMVC.Data
             : base(options)
         {
         }
-        //public DbSet<Product> Products { get; set; }
-        //public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
