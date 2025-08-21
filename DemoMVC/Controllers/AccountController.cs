@@ -8,6 +8,8 @@ namespace DemoMVC.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private const string CookieUserId = "UserId";
+        private const string CookieUsername = "Username";
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
@@ -53,6 +55,30 @@ namespace DemoMVC.Controllers
 
             if (result.Succeeded)
             {
+
+                var user = await _userManager.GetUserAsync(User);
+                // Set Cookie Options
+                var options = new CookieOptions
+                {
+                    Path = "/",
+                    HttpOnly = true,
+                    IsEssential = true,
+                    Secure = true // Set to true in production (requires HTTPS)
+                };
+                if (model.RememberMe)
+                {
+                    // Persistent cookie (expires in 7 days)
+                    options.Expires = DateTime.UtcNow.AddDays(7);
+                }
+                else
+                {
+                    // Non-persistent (Session cookie) - no expiration set, deleted on browser close
+                    options.Expires = null; // Or omit this line
+                }
+
+                // Create Cookies
+                Response.Cookies.Append(CookieUserId, user.Id.ToString(), options);
+                Response.Cookies.Append(CookieUsername, user.UserName, options);
                 return RedirectToAction("Index", "Home");
             }
 
