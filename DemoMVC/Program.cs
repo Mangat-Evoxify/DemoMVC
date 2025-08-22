@@ -1,5 +1,6 @@
 using DemoMVC.Data;
 using DemoMVC.Models;
+using DemoMVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<SmartyService>();
 
 var app = builder.Build();
 

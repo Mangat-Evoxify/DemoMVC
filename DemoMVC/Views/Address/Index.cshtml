@@ -1,0 +1,29 @@
+﻿@model DemoMVC.Models.AddressRequestViewModel;
+
+@{
+    ViewData["Title"] = "Validate Address";
+}
+
+<h2>Validate Address (CASS)</h2>
+
+<form asp-action="Index" method="post">
+    <div class="form-group">
+        <label>Street</label>
+        <input asp-for="Street" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>City</label>
+        <input asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>State</label>
+        <input asp-for="State" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Validate</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info mt-3">@ViewBag.Message</div>
+}

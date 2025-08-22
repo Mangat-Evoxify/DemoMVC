@@ -1,8 +1,72 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+@* <div class="text-center">
+    <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+    <button id="btngen">Get External Content</button>
+</div> *@
+<h3>jQuery Each Method</h3>
+<section>
+    <div class="demo" id="1st">This is 1st text</div>
+    <div class="demo" id="2nd">This is 2nd text</div>
+    <div class="demo" id="3rd">This is 3rd text</div>
+</section>
+<h3>jQuery Method Chaining</h3>
+<section>
+    <div class="div1">
+        <h4>This is a Title</h4>
+        jQuery is a fast, small, lightweight, and feature-rich JavaScript library. It is designed to simplify the client-side scripting of HTML. It makes things like DOM traversal and manipulation, event handling, animation, and Ajax much simpler. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript. As of May 2019, jQuery was used by 73% of the 10 million most popular websites.
+    </div>
+</section>
+</br>
+<button class="demo">Click Me</button>
+<button class="demo1">Click Me</button>
+<script>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+     $(document).ready(function () {
+       $('.demo').click(function(){
+       // $('.div1').animate({height: "400px"},1000);
+       // $('.div1').hide(1000);
+       // $('.div1').show(1000);
+       // $('.div1').slideUp(1000);
+       // $('.div1').slideDown(1000);
+       $('.div1').animate({ height: "500px" },1000).hide(1000).show(1000).slideUp(1000).slideDown(1000);
+     })
+    });
+       $(document).ready(function () {
+      $('.demo1').mouseover(function(){alert('Mouse Over')}).mouseleave(function(){alert('Mouse Out')})
+    });
+
+    //  $(document).ready(function () {
+    //   let obj ={
+    //     name : 'John',
+    //     age : 22,
+    //     job : 'Web Developer',
+    //     hobby : 'cricket',
+    //   }
+    //   $.each( obj, function(key, val){
+    //     console.log( `Key = ${key}  :  Value = ${val}` )
+    //   });
+    // });
+    // $(document).ready(function () {
+    //   let arr = ["HTML","CSS","JavaScript","jQuery","React"];
+    //   $.each(arr, function(index, item){
+    //     console.log(`Index no ${index}  :  Item = ${item}`)
+    //   });
+    // });
+     // $(document).ready(function(){
+    //     $('.demo').click( function(){
+    //         $('div.demo').each(function(index,item){
+    //             console.log(`${index} ${$(item).attr('id')} ${$(item).text()}`)
+    //         });
+    //     });
+    // });
+    //  $(document).ready(function(){
+    //    $("#btngen").click(function(){
+    //     $("#div1").load("/demo_test.txt");
+    //   });
+    // });
+
+
+</script>
